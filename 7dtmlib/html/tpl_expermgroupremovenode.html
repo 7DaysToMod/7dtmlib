@@ -1,0 +1,17 @@
+﻿<div class="row">
+	<div class="col-md-12">&nbsp;</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<h2>ExPerm Group - Remove Node</h2>
+		<div class="col-md-12">&nbsp;</div>
+		<form method="POST" action="/settings/experm/group/removenode">
+			<div class="form-group">
+				Are you sure you want remove the Security Node  "{node_name}" for the group "{group_name}"?
+			    <input type="hidden" name="group" id="group" value="{group_name}"/>
+			    <input type="hidden" name="node" id="node" value="{node_name}"/>
+			</div>
+			<button type="submit" class="btn btn-danger">Delete</button> <button type="button" class="btn btn-primary" onClick="document.location.href='/settings/experm/group?group={group_name}';">Cancel</button>
+		</form>
+	</div>
+</div>

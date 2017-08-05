@@ -1,0 +1,86 @@
+﻿<div class="row">
+	<div class="col-md-12">&nbsp;</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<h2>7dtmlib Settings</h2>
+		<div class="col-md-12">&nbsp;</div>
+		<form method="POST" action="/settings/">
+			<div class="form-group">
+			    <label for="tickrate">Tick Rate</label>
+			    <input type="text" class="form-control" id="tickrate" name="tickrate" placeholder="Tick Rate" value="{tickrate}"/>
+			    <p id="tickrateHelpBlock" class="form-text text-muted">
+				  The tick rate is the number of ticks between 7dtmlib firing the OnLibTick event.
+				</p>
+			</div>
+			<div class="jumbotron" style="padding:1rem;1rem;">
+				<div class="form-group">
+				    <label class="form-check-label">
+					    <input class="form-check-input" type="checkbox" value="" name="chatcommands_enabled" id="chatcommands_enabled">
+					    Enable Chat Commands
+					</label>
+				</div>
+			</div>
+			<div class="jumbotron" style="padding:1rem;1rem;">
+				<div class="form-group">
+				    <label class="form-check-label">
+					    <input class="form-check-input" type="checkbox" value="" name="webconsole_enabled" id="webconsole_enabled" onChange="onWebConsoleEnabledChange();">
+					    Enable Web Control Panel
+					</label>
+				</div>
+				<div class="form-group WebConsoleField">
+				    <label for="client_id">Port</label>
+				    <input type="text" class="form-control" id="webconsole_port" name="webconsole_port" placeholder="Port" value="{webconsole_port}"/>
+				</div>
+			</div>
+			<div class="jumbotron" style="padding:1rem;1rem;">
+				<div class="form-group">
+				    <label class="form-check-label">
+					    <input class="form-check-input" type="checkbox" value="" name="overridegamepref" id="overridegamepref" onChange="onGamePrefsOverrideChange();">
+					    Enable GamePrefs Override
+					</label>
+				</div>
+				<div class="form-group GamePrefField">
+				    <label for="client_id">World Type</label>
+				    <select class="form-control" id="world_type" name="world_type">
+				      <option value="navezgane">Navezgane</option>
+				      <option value="random gen">Random Gen</option>
+				    </select>
+				</div>
+				<div class="form-group GamePrefField">
+				    <label for="client_id">World Name</label>
+				    <input type="text" class="form-control" id="world_name" name="world_name" placeholder="World Name" value="{world_name}"/>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary">Save</button>
+		</form>
+	</div>
+</div>
+<script language="javascript">
+	function onWebConsoleEnabledChange(){
+		if($("#webconsole_enabled").is(":checked")){
+			$(".WebConsoleField").show();
+		}else{
+			$(".WebConsoleField").hide();
+		}
+	}
+
+	function onGamePrefsOverrideChange(){
+		if($("#overridegamepref").is(":checked")){
+			$(".GamePrefField").show();
+		}else{
+			$(".GamePrefField").hide();
+		}
+	}
+
+	$(document).ready(function(){
+		$("#chatcommands_enabled").prop('checked', {chatcommands_enabled});
+		$("#overridegamepref").prop('checked', {overridegameprefs});
+		$("#webconsole_enabled").prop('checked', {webconsole_enabled});
+		$("#world_type").val("{world_type}");
+
+		onGamePrefsOverrideChange();
+		onWebConsoleEnabledChange();
+	});
+
+</script>

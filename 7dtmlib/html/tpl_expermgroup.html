@@ -1,0 +1,36 @@
+﻿<div class="row">
+	<div class="col-md-12">&nbsp;</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<h2>ExPerm Group Settings</h2>
+		<div class="col-md-12">&nbsp;</div>
+		<form method="POST" action="/settings/experm/group">
+			<div class="form-group">
+			    <label for="group_name">Name</label>
+			    <input type="text" class="form-control" id="group_name" name="group_name" placeholder="Group Name" value="{group_name}"/>
+			</div>
+			<div class="form-group">
+			    <label for="group_name">Admin Level</label>
+			    <input type="text" class="form-control" id="admin_level" name="admin_level" placeholder="Admin Level" value="{admin_level}"/>
+			</div>
+			<button type="submit" class="btn btn-primary">Save</button>
+		</form>
+		<form method="POST" action="/settings/experm/group/addnode">
+			<h2>Group Permissions</h2>
+			<table class="table table-striped">
+			<tr>
+				<th>Permission Node</th>
+				<th>Allowed</th>
+				<th>&nbsp;</th>
+			</tr>
+			{group_permissions}
+			<tr>
+				<td><input type="text" name="node" id="node" /></td>
+				<td><input type="checkbox" name="allowed" id="allowed"/></td>
+				<td><input type="hidden" name="group" id="perm_group" value="{group_name}"/><button type="submit" class="btn btn-primary">Add</button</td>
+			</tr>
+			</table>
+		</form>
+	</div>
+</div>

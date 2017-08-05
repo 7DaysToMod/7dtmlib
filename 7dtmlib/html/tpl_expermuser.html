@@ -1,0 +1,45 @@
+﻿<div class="row">
+	<div class="col-md-12">&nbsp;</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<h2>ExPerm User Settings</h2>
+		<div class="col-md-12">&nbsp;</div>
+		<form method="POST" action="/settings/experm/user">
+			<div class="form-group">
+			    <label for="steam_id">Steam ID</label>
+			    <input type="text" class="form-control" id="steam_id_display" name="steam_id_display" value="{steam_id}" disabled/>
+			    <input type="hidden" class="form-control" id="steam_id" name="steam_id" value="{steam_id}" />
+			</div>
+			<div class="form-group">
+			    <label for="display_name_display">Display Name</label>
+			    <input type="text" class="form-control" id="display_name_display" name="display_name_display" value="{display_name}" disabled/>
+
+			</div>
+			<div class="form-group">
+			    <label for="experm_group">Group</label>
+			    <select name="experm_group" id="experm_group">
+			    	{experm_groups_options}
+			    </select>
+			</div>
+
+			<button type="submit" class="btn btn-primary">Save</button>
+		</form>
+		<form method="POST" action="/settings/experm/user/addnode">
+			<h2>User Permissions</h2>
+			<table class="table table-striped">
+			<tr>
+				<th>Permission Node</th>
+				<th>Allowed</th>
+				<th>&nbsp;</th>
+			</tr>
+			{user_permissions}
+			<tr>
+				<td><input type="text" name="node" id="node" /></td>
+				<td><input type="checkbox" name="allowed" id="allowed"/></td>
+				<td><input type="hidden" name="steam_id" id="perm_group" value="{steam_id}"/><button type="submit" class="btn btn-primary">Add</button</td>
+			</tr>
+			</table>
+		</form>
+	</div>
+</div>
